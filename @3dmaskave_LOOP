@@ -1,0 +1,168 @@
+#!/bin/tcsh -xef
+
+#===============================================================
+# start of script 1
+#===============================================================
+
+cd /media/cephfs/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/roi_results/test
+
+# Assign variable for all ROIs
+set all_ROIs = ( aINS mINS pINS amygdala hippocampus IFG DMPFC VMPFC OMPFC ACC PCC Precuneus nucleusaccumbens )
+
+# Assign variable for ROI number - we will loop through this! 
+set all_ROI_nums = ( 1 2 3 4 5 6 7 8 9 10 11 12 13 )
+
+
+# Begin loop! 
+foreach roi_num ( $all_ROI_nums ) 
+
+  # echo $roi_num
+  
+  set roi = $all_ROIs[$roi_num]  # set ROI by indexing through the all_ROIs 
+  echo " .... Now working on : $roi " 
+
+  mkdir {$roi}
+  cd {$roi}
+
+  set r1 = $roi       # set r1 as the current roi 
+  set v1 = $roi_num   # set v1 and v2 as the current roi number 
+  set v2 = $roi_num
+
+  #set condition
+  set c1 = Describe
+
+  #make sure that you edit the sub-brick to reflect the correct one
+  #also update paths 
+  #also update mask
+
+  ### Here is where you would loop through all the subjects, if you can figure out the wildcard issue... 
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BD618/ses-S8123/BD618_S8123_All.results/stats.Run1.BD618_S8123_All_REML+tlrc'[1]' > BD618.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BD730/ses-E15262/BD730_E15262_All.results/stats.Run1.BD730_E15262_All_REML+tlrc'[1]' > BD730.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BD731/ses-E15252/BD731_E15252_All.results/stats.Run1.BD731_E15252_All_REML+tlrc'[1]' > BD731.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BD834/ses-S8382/BD834_S8382_All.results/stats.Run1.BD834_S8382_All_REML+tlrc'[1]' > BD834.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BD854/ses-E15253/BD854_E15253_All.results/stats.Run1.BD854_E15253_All_REML+tlrc'[1]' > BD854.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE069/ses-S8363/BE069_S8363_All.results/stats.Run1.BE069_S8363_All_REML+tlrc'[1]' > BE069.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE075/ses-E15408/BE075_E15408_All.results/stats.Run1.BE075_E15408_All_REML+tlrc'[1]' > BE075.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE100/ses-S8571/BE100_S8571_All.results/stats.Run1.BE100_S8571_All_REML+tlrc'[1]' > BE100.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE101/ses-E15642/BE101_E15642_All.results/stats.Run1.BE101_E15642_All_REML+tlrc'[1]' > BE101.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE198/ses-E15726/BE198_E15726_All.results/stats.Run1.BE198_E15726_All_REML+tlrc'[1]' > BE198.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE242/ses-E16891/BE242_E16891_All.results/stats.Run1.BE242_E16891_All_REML+tlrc'[1]' > BE242.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE343/ses-S8580/BE343_S8580_All.results/stats.Run1.BE343_S8580_All_REML+tlrc'[1]' > BE343.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE391/ses-E15645/BE391_E15645_All.results/stats.Run1.BE391_E15645_All_REML+tlrc'[1]' > BE391.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE767/ses-E16698/BE767_E16698_All.results/stats.Run1.BE767_E16698_All_REML+tlrc'[1]' > BE767.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BF324/ses-E16290/BF324_E16290_All.results/stats.Run1.BF324_E16290_All_REML+tlrc'[1]' > BF324.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BG917/ses-S8285/BG917_S8285_All.results/stats.Run1.BG917_S8285_All_REML+tlrc'[1]' > BG917.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BG981/ses-S8258/BG981_S8258_All.results/stats.Run1.BG981_S8258_All_REML+tlrc'[1]' > BG981.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BI926/ses-E15219/BI926_E15219_All.results/stats.Run1.BI926_E15219_All_REML+tlrc'[1]' > BI926.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK134/ses-E16304/BK134_E16304_All.results/stats.Run1.BK134_E16304_All_REML+tlrc'[1]' > BK134.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK162/ses-E17352/BK162_E17352_All.results/stats.Run1.BK162_E17352_All_REML+tlrc'[1]' > BK162.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK186/ses-E16728/BK186_E16728_All.results/stats.Run1.BK186_E16728_All_REML+tlrc'[1]' > BK186.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK281/ses-E16407/BK281_E16407_All.results/stats.Run1.BK281_E16407_All_REML+tlrc'[1]' > BK281.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK323/ses-E16329/BK323_E16329_All.results/stats.Run1.BK323_E16329_All_REML+tlrc'[1]' > BK323.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK341/ses-S9802/BK341_S9802_All.results/stats.Run1.BK341_S9802_All_REML+tlrc'[1]' > BK341.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK361/ses-S9544/BK361_S9544_All.results/stats.Run1.BK361_S9544_All_REML+tlrc'[1]' > BK361.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK375/ses-S9514/BK375_S9514_All.results/stats.Run1.BK375_S9514_All_REML+tlrc'[1]' > BK375.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK380/ses-E16457/BK380_E16457_All.results/stats.Run1.BK380_E16457_All_REML+tlrc'[1]' > BK380.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK405/ses-E16398/BK405_E16398_All.results/stats.Run1.BK405_E16398_All_REML+tlrc'[1]' > BK405.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BK461/ses-S9572/BK461_S9572_All.results/stats.Run1.BK461_S9572_All_REML+tlrc'[1]' > BK461.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BL204/ses-E16680/BL204_E16680_All.results/stats.Run1.BL204_E16680_All_REML+tlrc'[1]' > BL204.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BL473/ses-S9990/BL473_S9990_All.results/stats.Run1.BL473_S9990_All_REML+tlrc'[1]' > BL473.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BL569/ses-S9994/BL569_S9994_All.results/stats.Run1.BL569_S9994_All_REML+tlrc'[1]' > BL569.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BL576/ses-E16855/BL576_E16855_All.results/stats.Run1.BL576_E16855_All_REML+tlrc'[1]' > BL576.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BL712/ses-E17007/BL712_E17007_All.results/stats.Run1.BL712_E17007_All_REML+tlrc'[1]' > BL712.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BM000/ses-S10355/BM000_S10355_All.results/stats.Run1.BM000_S10355_All_REML+tlrc'[1]' > BM000.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BM369/ses-S10593/BM369_S10593_All.results/stats.Run1.BM369_S10593_All_REML+tlrc'[1]' > BM369.{$r1}.{$c1}.1D
+
+    3dmaskave -mask /media/labs/nkirlic/A-MindREaL/Analysis/paper4_DESCRIBE/masks/BNA_ROIs_mask+tlrc -mrange {$v1} {$v2} \
+              -q /media/labs/jbodurka/PCC_ROI_NF/workspace/sub-BE970/ses-S10518/BE970_S10518_All.results/stats.Run1.BE970_S10518_All_REML+tlrc'[1]' > BE970.{$r1}.{$c1}.1D
+
+
+    1dcat BD618.{$r1}.{$c1}.1D BD730.{$r1}.{$c1}.1D BD731.{$r1}.{$c1}.1D BD834.{$r1}.{$c1}.1D BD854.{$r1}.{$c1}.1D BE069.{$r1}.{$c1}.1D \
+        BE075.{$r1}.{$c1}.1D BE100.{$r1}.{$c1}.1D BE101.{$r1}.{$c1}.1D BE198.{$r1}.{$c1}.1D \
+        BE242.{$r1}.{$c1}.1D BE343.{$r1}.{$c1}.1D BE391.{$r1}.{$c1}.1D BE767.{$r1}.{$c1}.1D BF324.{$r1}.{$c1}.1D BG917.{$r1}.{$c1}.1D \
+        BG981.{$r1}.{$c1}.1D BI926.{$r1}.{$c1}.1D BK134.{$r1}.{$c1}.1D BK162.{$r1}.{$c1}.1D BK186.{$r1}.{$c1}.1D BK281.{$r1}.{$c1}.1D BK323.{$r1}.{$c1}.1D \
+        BK341.{$r1}.{$c1}.1D BK361.{$r1}.{$c1}.1D BK375.{$r1}.{$c1}.1D BK380.{$r1}.{$c1}.1D BK405.{$r1}.{$c1}.1D BK461.{$r1}.{$c1}.1D \
+        BL204.{$r1}.{$c1}.1D BL473.{$r1}.{$c1}.1D BL569.{$r1}.{$c1}.1D BL576.{$r1}.{$c1}.1D BL712.{$r1}.{$c1}.1D BM000.{$r1}.{$c1}.1D \
+        BM369.{$r1}.{$c1}.1D BE970.{$r1}.{$c1}.1D  > {$r1}.{$c1}.1D
+    
+    1dtranspose {$r1}.{$c1}.1D {$r1}.{$c1}.txt
+
+   rm  B*
+
+  cd ../
+
+end 
+
+
